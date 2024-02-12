@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebSocketService } from './services/web-socket.service';
 import { AuthService } from './services/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +14,6 @@ export class AppComponent implements OnInit {
     private authService:AuthService) { } 
 
   ngOnInit(): void {
-    console.log('web socket url =', environment.webSocketUrl)
-    console.log('api base url =', environment.apiBaseUrl)
     this.webSocketService.connect()
   }
 }
