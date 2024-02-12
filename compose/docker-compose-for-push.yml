@@ -1,0 +1,22 @@
+services:
+  database:
+    build: 
+      context: ./database
+      dockerfile: Dockerfile
+    image: adoumadje/chat-app-database:latest
+  
+  backend:
+    build: 
+      context: ./chat-app
+      dockerfile: Dockerfile
+    image: adoumadje/chat-app-backend:latest
+    depends_on:
+      - database
+  
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: adoumadje/chat-app-frontend:latest
+    depends_on:
+      - backend

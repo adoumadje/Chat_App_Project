@@ -1,0 +1,1 @@
+BASE_URL = "http://ec2-3-123-33-9.eu-central-1.compute.amazonaws.com"

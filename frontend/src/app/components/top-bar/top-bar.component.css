@@ -1,0 +1,21 @@
+nav {
+    border-bottom: 1px solid #6d6c6c;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+nav h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav i {
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+nav i:hover {
+    transform: scale(1.1);
+}

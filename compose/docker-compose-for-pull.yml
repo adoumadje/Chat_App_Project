@@ -1,0 +1,31 @@
+services:
+  database:
+    image: adoumadje/chat-app-database:latest
+    container_name: chatdb_c0
+    networks:
+      - chat-app-net
+  
+  backend:
+    image: adoumadje/chat-app-backend:latest
+    container_name: backend_c0
+    networks:
+      - chat-app-net
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+  
+  frontend:
+    image: adoumadje/chat-app-frontend:latest
+    container_name: frontend_c0
+    ports:
+      - "80:80"
+    networks:
+      - chat-app-net
+    depends_on:
+      - backend
+
+networks:
+  chat-app-net:
+    name: chat-app-net
+    driver: bridge

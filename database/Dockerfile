@@ -1,0 +1,9 @@
+FROM mysql:8.0
+
+ENV MYSQL_ROOT_PASSWORD=password
+
+ENV MYSQL_DATABASE=chat_app_db
+ENV MYSQL_USER=chatuser
+ENV MYSQL_PASSWORD=chatpass
+
+EXPOSE 3306

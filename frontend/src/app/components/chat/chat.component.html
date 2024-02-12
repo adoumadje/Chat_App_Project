@@ -1,0 +1,66 @@
+<div class="flex border-1 border-500 border-round p-3" [style]="{ height: '550px', width: '1080px'}">
+    <div class="chats-list w-3 max-h-30rem overflow-scroll">
+        <div [class]="'chatroom flex align-items-center border-bottom-1 border-500 p-1 cursor-pointer '
+            + (chatroomIsActive? 'surface-100' : '')"
+            (click)="activateChatroom()">
+            <p-avatar label="CR" styleClass="mr-2" shape="circle"></p-avatar>
+            <div>
+                <h5 class="m-0 p-0">Chat Room</h5>
+                <small class="m-0 p-0">{{ numOfOnlineUsers }} online</small>
+            </div>
+        </div>
+        <div 
+            *ngFor="let user  of usersList"
+            [class]="'chatroom flex align-items-center border-bottom-1 border-500 p-1 mt-2 cursor-pointer ' 
+                + (user.isActiveChat? 'surface-100' : '')
+            "
+            (click)="activatePrivateChat(user.id)"
+        >
+            <p-avatar label="{{ user.initial }}" styleClass="mr-2" shape="circle"></p-avatar>
+            <div>
+                <h5 class="m-0 p-0">{{ user.fullname }}</h5>
+                <small class="m-0 p-0">{{ user.status }}</small>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ml-2">
+        <div class="chat-box border-1 border-500 h-27rem p-3 overflow-scroll" [style]="{ width: '800px'}">
+            <ng-container *ngFor="let msg of chats.get(currentChat)">
+                <div *ngIf="user != null && msg.senderId != user.id" class="chat-from-other flex mb-3">
+                    <p-avatar label="{{ msg.senderInitial }}" styleClass="mr-2" shape="circle"></p-avatar>
+                    <div class="bg-black-alpha-10 p-2 border-round" [style]="{ maxWidth: '350px'}">
+                        <h5 class="m-0">{{ msg.senderName }}</h5>
+                        <p class="m-0">{{ msg.message }}</p>
+                    </div>
+                </div>
+                <div *ngIf="user != null && msg.senderId == user.id" class="chat-from-me flex justify-content-end mb-3">
+                    <div class="bg-blue-200 p-2 border-round" [style]="{ maxWidth: '350px'}">
+                        <h5 class="m-0">{{ msg.senderName }}</h5>
+                        <p class="m-0">{{ msg.message }}</p>
+                    </div>
+                    <p-avatar label="{{ msg.senderInitial }}" styleClass="ml-2" shape="circle"></p-avatar>
+                </div>
+            </ng-container>
+        </div>
+
+
+
+        <form [formGroup]="messageForm" class="mt-3 flex" (ngSubmit)="sendTextMessage()">
+            <div class="field mr-2 w-full">
+                <input type="text"
+                    pInputText
+                    formControlName="textMessage"
+                    placeholder="Type your message"
+                    class="w-full"
+                >
+            </div>
+            <p-button
+                label="Send"
+                [disabled]="messageForm.invalid"
+                type="submit"
+            ></p-button>
+        </form>
+    </div>
+</div>

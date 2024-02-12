@@ -1,0 +1,25 @@
+<nav class="fixed top-0 left-0 w-full flex justify-content-between">
+    <h1>My Chat App</h1>
+    <div *ngIf="isLoggedIn" class="user flex align-items-center">
+        <h4 class="mr-2">{{ user?.fullname }}</h4>
+        <p-avatar label="{{ user?.initial }}" styleClass="mr-2" shape="circle"></p-avatar>
+        <i class="pi pi-sign-out ml-4" style="font-size: 1.2rem"
+            (click)="askConfirmation()"
+        ></i>
+        <p-dialog header="Are sure you want to logout ?" 
+            [(visible)]="displayConfirmationDialog" 
+            [style]="{width: '25vw'}"
+            [modal]="true"
+        >
+            <ng-template pTemplate="footer">
+                <p-button label="Yes"
+                    (onClick)="logout()"
+                ></p-button>
+                <p-button label="No" 
+                    styleClass="bg-red-500"
+                    (onClick)="cancel()"
+                ></p-button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</nav>

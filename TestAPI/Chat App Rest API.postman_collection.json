@@ -1,0 +1,848 @@
+{
+	"info": {
+		"_postman_id": "46e99b18-8165-4b7d-a11b-8199435ef7fb",
+		"name": "Chat App Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22623339"
+	},
+	"item": [
+		{
+			"name": "Register User1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseText\r",
+							"\r",
+							"let req = JSON.parse(pm.request.body.raw)\r",
+							"console.log(req)\r",
+							"\r",
+							"pm.collectionVariables.set('user1_email', req.email)\r",
+							"pm.collectionVariables.set('user1_password', req.password)\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response body is text', function () {\r",
+							"    responseText = pm.response.text()\r",
+							"})\r",
+							"\r",
+							"pm.test('Response text to be: \"registration successful\"', function () {\r",
+							"    pm.expect(responseText).to.eql('registration successful')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseText\r",
+							"\r",
+							"let req = JSON.parse(pm.request.body.raw)\r",
+							"console.log(req)\r",
+							"\r",
+							"pm.collectionVariables.set('user2_email', req.email)\r",
+							"pm.collectionVariables.set('user2_password', req.password)\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response body is text', function () {\r",
+							"    responseText = pm.response.text()\r",
+							"})\r",
+							"\r",
+							"pm.test('Response text to be: \"registration successful\"', function () {\r",
+							"    pm.expect(responseText).to.eql('registration successful')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseText\r",
+							"\r",
+							"let req = JSON.parse(pm.request.body.raw)\r",
+							"console.log(req)\r",
+							"\r",
+							"pm.collectionVariables.set('user3_email', req.email)\r",
+							"pm.collectionVariables.set('user3_password', req.password)\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response body is text', function () {\r",
+							"    responseText = pm.response.text()\r",
+							"})\r",
+							"\r",
+							"pm.test('Response text to be: \"registration successful\"', function () {\r",
+							"    pm.expect(responseText).to.eql('registration successful')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code to be 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"    pm.collectionVariables.set('user1_token', response.token)\r",
+							"    pm.collectionVariables.set('user1_id', response.id)\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'object',\r",
+							"        properties: {\r",
+							"            id: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            fullname: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            email: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            initial: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            token: {\r",
+							"                type: 'string'\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{user1_email}}\",\r\n    \"password\": \"{{user1_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code to be 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"    pm.collectionVariables.set('user2_token', response.token)\r",
+							"    pm.collectionVariables.set('user2_id', response.id)\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'object',\r",
+							"        properties: {\r",
+							"            id: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            fullname: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            email: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            initial: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            token: {\r",
+							"                type: 'string'\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{user2_email}}\",\r\n    \"password\": \"{{user2_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code to be 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"    pm.collectionVariables.set('user3_token', response.token)\r",
+							"    pm.collectionVariables.set('user3_id', response.id)\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'object',\r",
+							"        properties: {\r",
+							"            id: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            fullname: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            email: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            initial: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            token: {\r",
+							"                type: 'string'\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{user2_email}}\",\r\n    \"password\": \"{{user2_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User1 Forgot Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Response status is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"    pm.collectionVariables.set('user1_pass_reset_token', response.passwordResetToken)\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'object',\r",
+							"        properties: {\r",
+							"            passwordResetToken: {\r",
+							"                type: 'string'\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{user1_email}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/forgot-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User1 Reset Password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set('user1_password', pm.variables.replaceIn('{{&randomPassword}}'))"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be text', function () {\r",
+							"    response = pm.response.text()\r",
+							"})\r",
+							"\r",
+							"pm.test('Response text to be: \"Password Reset Successfully\"', function () {\r",
+							"    pm.expect(response).to.eql('Password Reset Successfully')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passToken\": \"{{user1_pass_reset_token}}\",\r\n    \"newPass\": \"{{user1_password}}\",\r\n    \"confirmPass\": \"{{user1_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/reset-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User1 Again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code to be 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"    pm.collectionVariables.set('user1_token', response.token)\r",
+							"    pm.collectionVariables.set('user1_id', response.id)\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'object',\r",
+							"        properties: {\r",
+							"            id: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            fullname: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            email: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            initial: {\r",
+							"                type: 'string'\r",
+							"            },\r",
+							"            token: {\r",
+							"                type: 'string'\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{user1_email}}\",\r\n    \"password\": \"{{user1_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response to be text', function () {\r",
+							"    response = pm.response.text()\r",
+							"})\r",
+							"\r",
+							"pm.test('Text response to be: \"Logout Successful\"', function () {\r",
+							"    pm.expect(response).to.eql('Logout Successful')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/logout-user?userToken={{user3_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout-user"
+					],
+					"query": [
+						{
+							"key": "userToken",
+							"value": "{{user3_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Other Users for User1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response is JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'array'\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/get-all-other-users?userId={{user1_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"get-all-other-users"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{user1_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Chatroom Messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response is JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'array'\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/get-all-chatroom-messages",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"get-all-chatroom-messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User1 Private Messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response\r",
+							"\r",
+							"pm.test('Status code is 200', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Response is JSON format', function () {\r",
+							"    response = pm.response.json()\r",
+							"})\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    const schema = {\r",
+							"        type: 'array'\r",
+							"    }\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/get-user-private-messages?userId={{user1_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"get-user-private-messages"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{user1_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "user1_email",
+			"value": ""
+		},
+		{
+			"key": "user1_password",
+			"value": ""
+		},
+		{
+			"key": "user2_email",
+			"value": ""
+		},
+		{
+			"key": "user2_password",
+			"value": ""
+		},
+		{
+			"key": "user3_email",
+			"value": ""
+		},
+		{
+			"key": "user3_password",
+			"value": ""
+		},
+		{
+			"key": "user1_token",
+			"value": ""
+		},
+		{
+			"key": "user1_id",
+			"value": ""
+		},
+		{
+			"key": "user2_token",
+			"value": ""
+		},
+		{
+			"key": "user2_id",
+			"value": ""
+		},
+		{
+			"key": "user3_token",
+			"value": ""
+		},
+		{
+			"key": "user3_id",
+			"value": ""
+		},
+		{
+			"key": "user1_pass_reset_token",
+			"value": ""
+		}
+	]
+}

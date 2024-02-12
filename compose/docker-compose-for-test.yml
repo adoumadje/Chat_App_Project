@@ -1,0 +1,34 @@
+services:
+  database:
+    build: ./database
+    image: chat-app-database
+    container_name: chatdb_c0
+    networks:
+      - chat-app-net
+  
+  backend:
+    build: ./chat-app
+    image: chat-app-backend
+    container_name: backend_c0
+    networks:
+      - chat-app-net
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+  
+  frontend:
+    build: ./frontend
+    image: chat-app-frontend
+    container_name: frontend_c0
+    ports:
+      - "80:80"
+    networks:
+      - chat-app-net
+    depends_on:
+      - backend
+
+networks:
+  chat-app-net:
+    name: chat-app-net
+    driver: bridge
