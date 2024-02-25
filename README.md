@@ -2,7 +2,7 @@
 + Spring boot + Spring Data Jpa(Hibernate) + Spring Security(Bcrypt password encoder) 
 + Websocket(SockJS and STOMP) for messaging + MySQL database + Unit Testing using JUnit, AssertJ and Mockito
 + Angular, PrimeNg for components, PrimeFlex for styling and PrimeIcons for icons + Postman and javascript for API testing
-+ Selenium and Chrome webdriver for UI testing + AWS EC2, VPC, S3, NGINX, SSH for deployment + Docker, docker-compose and Github Actions
++ Selenium(Python) and Chrome webdriver for UI testing + AWS EC2, VPC, S3, NGINX, SSH for deployment + Docker, docker-compose and Github Actions
 for CI/CD pipeline.
 
 **Open Live**: http://ec2-3-76-223-198.eu-central-1.compute.amazonaws.com
@@ -31,7 +31,7 @@ for styling and PrimeIcon for icons. I used SockJS-Client and stompjs for messag
 **Testing**<br>
 I wrote unit tests for my backend using JUnit, AssertJ and Mockito.<br>
 I wrote tests for my RestAPI on postman<br>
-I automated my UI testing using Selenium and Chrome driver
+I automated my UI testing using Selenium(with Python) and Chrome driver
 
 **DevOps**<br>
 I used docker to containerize my application for easier deployment on AWS.<br>
