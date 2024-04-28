@@ -1,4 +1,4 @@
 export const environment = {
-    apiBaseUrl: 'http://3.76.223.198:8080/api',
-    webSocketUrl: 'http://3.76.223.198:8080/ws'
+    apiBaseUrl: 'http://54.93.208.100:8080/api',
+    webSocketUrl: 'http://54.93.208.100:8080/ws'
 };
